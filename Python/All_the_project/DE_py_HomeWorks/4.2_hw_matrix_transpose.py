@@ -2,6 +2,21 @@
 """
 
 
+def matrix_transpose(m):
+    new = []
+    for i in range(len(m[0])):
+        new.append([])
+    for i in range(len(m)):
+        for j in range(len(m[i])):
+            new[j].append(m[i][j])
+    return new
+
+
+print(matrix_transpose([[1, 2], [3, 4], [5, 6]]))
+
+
+# ==============================================
+"""
 def matrix_transpose(matrix: list[list]):
     print(f'\nПолученная матрица: ')
 
@@ -23,3 +38,5 @@ def matrix_transpose(matrix: list[list]):
 
 m = [[1, 3, 4], [78, 5, 4], [2, 8, 9], [2, 8, 9]]
 matrix_transpose(m)
+
+"""

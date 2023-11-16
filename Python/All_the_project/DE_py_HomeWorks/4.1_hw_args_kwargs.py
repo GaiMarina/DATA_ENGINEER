@@ -4,6 +4,30 @@
 Значения не удаляются, а помещаются в одноимённые переменные без s на конце.
 """
 
+
+def func() -> None:     # В locals() переменную нельзя изменить, а в globals() - можно!!! (Обе ф-и возвр-т словарь)
+    g = globals()
+    change = {}
+    for key, value in g.items():
+        if key == 's':
+            continue
+        if key.endswith('s'):
+            change[key[:-1]] = g[key]
+            g[key] = None
+    for key, value in change.items():
+        g[key] = value
+
+
+datas = [42, -73, 12, 85, -15, 2]
+s = 'Hello world!'
+names = ('NoName', 'OtherName', 'NewName')
+sx = 42
+
+print(func())
+print(globals())
+
+#============================================================
+"""
 def s_object_replace(**kwargs):
     print(kwargs)
     kwargs_dict = {}
@@ -18,3 +42,4 @@ def s_object_replace(**kwargs):
 
 
 print(s_object_replace(wars='wars', calls='calls', nos='nos', s='s', abscence='abscence'))
+"""
